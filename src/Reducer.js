@@ -97,10 +97,10 @@ const Reducer = (state = initState, action) => {
     let newDiscountNoDetirement = [...state.discountNoDetirement];
     let newExtraChargeDetirement = [...state.extraChargeDetirement];
 
-    if (action.name === 'one-additionalInfo') {
+    if (action.name === 'one-additionalInfo' && action.isActive === 'disabled') {
       newDiscountNoDetirement[1] = true;
       newExtraChargeDetirement[1] = false;
-    } else if (action.name === 'two-additionalInfo') {
+    } else if (action.name === 'two-additionalInfo' && action.isActive === 'disabled') {
       newDiscountNoDetirement[1] = false;
       newExtraChargeDetirement[1] = true;
     } else {
