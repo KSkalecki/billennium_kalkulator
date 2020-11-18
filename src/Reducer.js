@@ -1,5 +1,5 @@
 const initState = {
-  insuranceAmount: 1500,
+  insuranceAmount: 5500,
   instalmentButtons: [
     { name: 'one-inst', isActive: 'enabled', text: '1 rata'},
     { name: 'two-inst', isActive: 'disabled', text: '2 raty'},
@@ -10,10 +10,11 @@ const initState = {
     { name: 'one-additionalInfo', isActive: 'disabled', text: 'brak szkód' },
     { name: 'two-additionalInfo', isActive: 'disabled', text: 'wyrządzona szkoda' },
   ],
+  multiplier: 1,
   discountPayment: [ 0.98, true],
-  discountNoDetirement: [ 0.95, false],
-  extraChargePayment: [1.04, false],
-  extraChargeDetirement: [1.08, false],
+  discountNoDetirement: [ 0.95, 'N/A'],
+  extraChargePayment: [1.04, 'N/A'],
+  extraChargeDetirement: [1.08, 'N/A'],
   installmentAmount: 0,
   showSummary: false,
 }
@@ -39,7 +40,8 @@ const Reducer = (state = initState, action) => {
     let newShowSummary = false;
     let newDiscountPayment = [...state.discountPayment];
     let newExtraChargePayment = [...state.extraChargePayment];
-      
+    let newMultiplier;
+    
     newNoOfInstallments.forEach(button => {
       button.isActive = button.name === action.name ? 'enabled' : 'disabled';
     })
@@ -47,15 +49,19 @@ const Reducer = (state = initState, action) => {
     if (action.name === 'one-inst') {
       newDiscountPayment[1] = true;
       newExtraChargePayment[1] = false;
+      newMultiplier = 1;
     } else if (action.name === 'two-inst') {
       newDiscountPayment[1] = 'N/A';
       newExtraChargePayment[1] = 'N/A';
+      newMultiplier = 2;
     } else if (action.name === 'three-inst') {
       newDiscountPayment[1] = 'N/A';
       newExtraChargePayment[1] = 'N/A';
+      newMultiplier = 3;
     } else if (action.name === 'four-inst') {
       newDiscountPayment[1] = false;
       newExtraChargePayment[1] = true;
+      newMultiplier = 4;
     }
       
     return {
@@ -64,6 +70,7 @@ const Reducer = (state = initState, action) => {
       extraChargePayment: newExtraChargePayment,
       instalmentButtons: newNoOfInstallments,
       installmentAmount: newInstallmentAmountTotal,
+      multiplier: newMultiplier,
       showSummary: newShowSummary
     }
 
@@ -93,10 +100,14 @@ const Reducer = (state = initState, action) => {
     if (action.name === 'one-additionalInfo') {
       newDiscountNoDetirement[1] = true;
       newExtraChargeDetirement[1] = false;
-    } else {
+    } else if (action.name === 'two-additionalInfo') {
       newDiscountNoDetirement[1] = false;
       newExtraChargeDetirement[1] = true;
+    } else {
+      newDiscountNoDetirement[1] = 'N/A';
+      newExtraChargeDetirement[1] = 'N/A';
     }
+     
  
     return {
       ...state,

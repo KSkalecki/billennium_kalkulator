@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const CalculatorSummary = ({ insuranceAmount, instalmentButtons, additionalInfoButtons, installmentAmount, showSummary }) => {
+const CalculatorSummary = ({ insuranceAmount, instalmentButtons, additionalInfoButtons, installmentAmount, multiplier, showSummary }) => {
   
   const amountSummary = insuranceAmount;
   const singleInstallment = installmentAmount;
-  const installmentsTotal = singleInstallment;
+  const installmentsTotal = singleInstallment * multiplier;
 
   const noOfInstallmentsSummary = () => {
     let activeButtonInstallmensText = instalmentButtons.find(button => {
@@ -81,6 +81,7 @@ const mapStateToProps = (state) => {
     instalmentButtons: state.instalmentButtons,
     additionalInfoButtons: state.additionalInfoButtons, 
     installmentAmount: state.installmentAmount,
+    multiplier: state.multiplier,
     showSummary: state.showSummary
   }
 }

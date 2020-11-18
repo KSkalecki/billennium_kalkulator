@@ -19,7 +19,7 @@ const SubmitPanel = ({ insuranceAmount, discountPayment, discountNoDetirement, e
     } else if (insuranceAmount >= 6001 && insuranceAmount <= 9000) {
       newAmount = 180;
     } else if (insuranceAmount >= 9001) {
-      newAmount = 180;
+      newAmount = 200;
     }
 
     // Get payment modifiers
@@ -39,7 +39,6 @@ const SubmitPanel = ({ insuranceAmount, discountPayment, discountNoDetirement, e
     } else {
       isDetirement = 1;
     }
-
 
     return Math.ceil((newAmount * installmentsNo) * (isDetirement) )  ;
   }
