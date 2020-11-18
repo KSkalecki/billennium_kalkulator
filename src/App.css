@@ -1,0 +1,415 @@
+body{
+  background: url("./img/background_img.jpeg") no-repeat;
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  height: 100%;
+  text-align:  center;
+  font-family: 'Roboto', Verdana, Tahoma, sans-serif;
+}
+
+#root{
+  width: 50%;
+  min-height: 600px;
+}
+
+.container{
+  border-radius: 7px;
+  text-align: left;
+}
+
+.center{
+  padding: 1rem 1.5rem;
+}
+
+.main-container{
+  background: #272f32;
+  background: linear-gradient(0deg,#688793 0%, #272f32 100%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 10px 15px rgba(39 ,47 ,50, 0.45);
+}
+
+.heading{
+  margin: 0;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+a{
+  text-decoration: none;
+} 
+  
+.component-label{
+  padding: 1.5rem 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+.summary-label{
+  padding: .5rem 0;
+  flex: 1;
+}
+
+.all-components-container{
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.component-wrapper-summary{
+  margin: 5rem;
+  border: 2px lightgray dotted;
+  border-bottom: none;
+}
+
+.component-container-summary{
+  align-items: baseline;
+  display: flex;
+  border-bottom: 1px lightgray solid;
+  padding-bottom: 0;
+}
+
+.component-container-summary:last-child{
+  font-weight: 700;
+  text-align: right;
+}
+
+.btn-container-installments{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-container-additional-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn{
+  text-align: center;
+  height: auto;
+  border-radius: 25px;
+  padding: .3rem;
+  border: none;
+  color: #ffffff;
+  transition: .4s;
+}
+
+.btn-enabled{
+  background: #ff3d2e;
+  box-shadow: -1px 2px 8px rgb(135, 164, 175, 0.6); 
+}
+
+.btn-disabled{
+  background: #daeaef;
+  color:#9dbdc6;
+}
+
+.btn-installment{
+  width: calc(100% / 5);
+}
+
+.btn-additional-info{
+  width: calc(100% / 5);
+}
+
+.btn-installment:hover{
+  box-shadow: -1px 2px 8px rgb(135, 164, 175, 0.6);
+}
+
+.btn-additional-info:hover{
+  box-shadow: -1px 2px 8px rgb(135, 164, 175, 0.6);
+}
+
+.btn-submit{
+  background: linear-gradient(90deg,#1f8a70 0%, #bdda39 100%);
+  height: 2.5rem;
+}
+
+.btn-submit:hover{
+  box-shadow: 0px 4px 7px rgb(255, 156, 167, 0.8);  
+}
+
+.btn-submit span{
+  padding: 0rem 2rem;
+  font-size: xx-small;
+}
+
+.additional-info-text{
+  width: 39%;
+}
+
+.additional-info-text + div{
+  width: 1%;
+}
+  
+.submit-panel{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #e8f3f7;
+}
+
+.installment-amount {
+  background: #ffffff;
+  width: 33%;
+  padding: .5rem 1.2rem;
+  box-shadow: 0px 5px 15px rgb(135, 164, 175, 0.6);  
+}
+
+.installment-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.insurance-labels{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .5rem 0;
+}
+
+.label-small{
+  font-size: .5rem;
+  color: #9dbdc6;
+  
+}
+
+.insurance-amount{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff3d2e;
+}
+
+#slider-input {
+  width: 100%;
+  height: 4px;
+  outline: none;
+  transition: background 450ms ease-in ;
+  -webkit-appearance: none ;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: #ff3d2e;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ff3d2e;
+  cursor: pointer;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  background: #e6e6e6;
+}
+
+.nav-element{
+  width:50%;
+  height: 1.5rem;
+  padding: .5rem 0px;
+  text-align: center;
+  transition: .5s;
+  background: linear-gradient(180deg, #93abb4 0%, #a9c1ca 100%);
+}
+
+a.nav-element,  a:link.nav-element {
+  color: #ffffff;
+}
+
+.nav-element:hover{
+  background: linear-gradient(180deg, #c4c4c4 0%, #e6e6e6 100%);;
+  color: #272f32
+}
+
+.nav-element.active:hover{
+  color: #ffffff
+}
+
+.nav-element.active{
+  background: linear-gradient(180deg, #7d9199 0%, #93abb4 100%);
+  font-weight: 800;
+}
+
+.div-inactive{
+  margin: auto auto;
+  color: #c4c4c4;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-container .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color:#272f32;
+  color: #fff;
+  text-align: center;
+  padding: 10px 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 999;
+  top: 90%;
+  right: -110%;
+}
+
+.tooltip-container:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/*mobile CSS*/
+
+@media screen and (max-width: 1025px)  {
+
+  body{
+    background-image: none;
+    overflow: scroll;
+    min-height: -webkit-fill-available;
+    font-size: 30px;
+  }
+  
+  #root{
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .main-container{
+    box-shadow: none;
+  }
+
+  .container{
+    border-radius: 0;
+    text-align: center;
+  }
+
+  .component-label {
+    font-size: 2rem;
+  }
+
+  #slider-input {
+    height: 10px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+  }
+
+  .insurance-amount {
+    font-size: 3.2rem;
+  }
+
+  .btn-container-installments {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-installment {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .btn-container-additional-info{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-additional-info{
+    width: 100%;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin: .5rem;
+  }
+
+  .additional-info-text{
+    width: 100%;
+  }
+  
+  .label-small {
+    font-size: 1rem;
+  }
+  
+  .submit-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-submit{
+    font-size: 1.8rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  
+  .btn-submit span{
+    padding: 0rem 2rem;
+    font-size: 1.8rem;
+  }
+
+  .installment-amount {
+    width: 100%;
+    padding: inherit;
+    box-shadow: none;
+    padding: 0;
+    border: #272f32 2px solid;  
+  }
+  
+  .installment-total {
+    font-size: inherit;
+  }
+  
+  .all-components-container {
+    flex-direction: column-reverse;
+  }
+
+  .component-wrapper-summary {
+    margin: 0;
+    border: none;
+  }
+
+  .summary-label{
+    flex: none;
+  }
+
+  .nav-element, .div-inactive{
+    width: 100%;
+    padding: 1rem 1.5rem;
+    height: 2rem;
+  }
+
+  .nav-element.active{
+    display: none;
+  }
+
+  .component-container-summary {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+}
+
